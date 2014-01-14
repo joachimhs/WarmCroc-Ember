@@ -1,0 +1,1 @@
+var LDBB = Ember.Application.create();
