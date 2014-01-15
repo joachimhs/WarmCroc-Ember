@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-4">
+        <h1>Buckets</h1>
+
+        {{#if showAddBucket}}
+            {{input type="text" value=controller.newBucketName}}
+            <button class="btn btn-default" {{action "saveBucket"}}>Save</button>
+            <button class="btn btn-default" {{action "cancelBucket"}}>Cancel</button>
+        {{else}}
+            <button class="btn btn-default" {{action "addBucket"}}>Add Bucket</button>
+        {{/if}}
+
+
+
+        <div class="list-group">
+            {{#each bucket in controller}}
+                {{#if bucket.isLoaded}}
+                    {{#link-to "bucket" bucket class="list-group-item"}}
+                        {{bucket.id}}
+                    {{/link-to}}
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        {{outlet}}
+    </div>
+</div>
